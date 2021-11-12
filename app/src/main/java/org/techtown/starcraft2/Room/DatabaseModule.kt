@@ -15,7 +15,7 @@ object DatabaseModule {
     @Singleton
     @Provides
     fun provideDatabase(@ApplicationContext context: Context) = Room.databaseBuilder(context, Starcraft2DB::class.java,
-        "starcraft2_database").createFromAsset("databases/Starcraft2_Terran.db").build()
+        "starcraft2_database").createFromAsset("databases/Starcraft2_Terran2.db").build()
     @Singleton
     @Provides
     fun provideDao(database: Starcraft2DB)=database.starcraft2Dao()

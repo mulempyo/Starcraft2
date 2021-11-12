@@ -1,22 +1,21 @@
 package org.techtown.starcraft2
 
 
-import android.content.Context
-import android.content.pm.ApplicationInfo
+import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlin.coroutines.coroutineContext
+import org.techtown.starcraft2.Room.DatabaseModule
+import org.techtown.starcraft2.Room.Starcraft2DB
 
 class TerranAdpater:RecyclerView.Adapter<TerranAdpater.ViewHolder>() {
-    private var stdList:ArrayList<Starcraft2Model> = ArrayList()
-    fun addItems(items:ArrayList<Starcraft2Model>){
-        this.stdList=items
-    }
+private var list = listOf<DatabaseModule>()
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_main,parent,false)
@@ -25,7 +24,8 @@ class TerranAdpater:RecyclerView.Adapter<TerranAdpater.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return stdList.size
+        return list.size
+
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -33,15 +33,11 @@ class TerranAdpater:RecyclerView.Adapter<TerranAdpater.ViewHolder>() {
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
-            val unitInfo = view.findViewById<TextView>(R.id.UnitInfoTextView)
-        fun bindView(std: Starcraft2Model){
-            unitInfo.text = std.unit
-        }
-
-
-
-
+        val recyclerView:RecyclerView = view.findViewById(R.id.recyclerView2)
 
     }
 }
+
+
+
 

@@ -7,6 +7,6 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface Starcraft2Dao {
-    @Query("SELECT * FROM Starcraft2")
+    @Query("SELECT * FROM starcraft2")
     fun readAll(): Flow<List<Starcraft2Table>>
 }

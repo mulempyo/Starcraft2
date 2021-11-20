@@ -1,41 +1,46 @@
 package org.techtown.starcraft2
 
-import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
-import androidx.annotation.NonNull
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.room.Room
-import org.techtown.starcraft2.Room.Starcraft2DB
+import com.google.firebase.database.*
 import org.techtown.starcraft2.databinding.ActivityMainBinding
-import javax.security.auth.callback.Callback
 
 
 class MainActivity : AppCompatActivity() {
     val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    lateinit var database:DatabaseReference
+    private lateinit var unitList:ArrayList<Starcraft2Unit>
+    private lateinit var adapter: TerranAdapter
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
-
         setContentView(binding.root)
-        binding.goButton.setOnClickListener(){
-            val intent = Intent(this,NewsActivity::class.java)
-            startActivity(intent)}
+        unitList = ArrayList()
+        adapter = TerranAdapter(this,unitList)
+        binding.recyclerTerran.layoutManager = LinearLayoutManager(this)
+        binding.recyclerTerran.setHasFixedSize(true)
+        getUnitData()
+    }
+    private fun getUnitData(){
+        database = FirebaseDatabase.getInstance().getReference("Terran")
+        database.addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()){
+                    for (animalSnapshot in snapshot.children){
+                        val animal = animalSnapshot.getValue(Starcraft2Unit::class.java)
+                        unitList.add(animal!!)
+                    }
+                    binding.recyclerTerran.adapter = adapter
+                }
+            }
 
-            val  adpater:TerranAdpater ?= null
-            binding.recyclerView2.adapter = adpater
-        binding.recyclerView2.setRecyclerListener {
-            Room.databaseBuilder(applicationContext,Starcraft2DB::class.java,"starcraft2_database")
-                    .createFromAsset("databases/Starcraft2_Terran2.db").build()
-        }
-            binding.recyclerView2.layoutManager = LinearLayoutManager(this)
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@MainActivity,
+                    error.message, Toast.LENGTH_SHORT).show()
 
-
-
-
-
-
-
+            }
+        })
     }
 
 

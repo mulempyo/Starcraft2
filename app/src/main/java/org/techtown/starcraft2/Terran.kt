@@ -10,10 +10,11 @@ class Terran:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
-        val  adpater:TerranAdpater ?= null
-        binding.recyclerView.adapter = adpater
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
-
+        val unitName = intent.getStringExtra("Name")
+        val unitInfo = intent.getStringExtra("info")
+        val unitImg = intent.getStringExtra("img")
+        binding.name.text = unitName
+        binding.info.text = unitInfo
+        binding.img.loadImage(unitImg, getProgressDrawable(this))
     }
 }

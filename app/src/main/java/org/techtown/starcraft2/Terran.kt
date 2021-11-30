@@ -2,7 +2,9 @@ package org.techtown.starcraft2
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.FirebaseApp
+import com.google.firebase.appcheck.FirebaseAppCheck
+import com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory
 import org.techtown.starcraft2.databinding.TerranBinding
 
 class Terran:AppCompatActivity() {
@@ -16,5 +18,6 @@ class Terran:AppCompatActivity() {
         binding.name.text = unitName
         binding.info.text = unitInfo
         binding.img.loadImage(unitImg, getProgressDrawable(this))
+
     }
 }

@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.FirebaseApp
+import com.google.firebase.appcheck.FirebaseAppCheck
+import com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory
 import com.google.firebase.database.*
 import org.techtown.starcraft2.databinding.ActivityMainBinding
 
@@ -21,6 +24,11 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerTerran.layoutManager = LinearLayoutManager(this)
         binding.recyclerTerran.setHasFixedSize(true)
         getUnitData()
+        FirebaseApp.initializeApp(this)
+        val firebaseAppCheck = FirebaseAppCheck.getInstance()
+        firebaseAppCheck.installAppCheckProviderFactory(
+            DebugAppCheckProviderFactory.getInstance()
+        )
     }
     private fun getUnitData(){
         database = FirebaseDatabase.getInstance().getReference("Terran")

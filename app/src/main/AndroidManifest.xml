@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Starcraft2">
-        <activity android:name=".Terran"/>
+        <activity android:name=".GameInfoActivity"/>
+        <activity android:name=".Zerg.ZergRecyclerView"/>
+        <activity android:name=".Protos.ProtosRecyclerView"/>
+        <activity android:name=".Terran.TerranRecyclerView"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

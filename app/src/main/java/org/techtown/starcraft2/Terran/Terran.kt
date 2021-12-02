@@ -1,10 +1,7 @@
-package org.techtown.starcraft2
+package org.techtown.starcraft2.Terran
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.FirebaseApp
-import com.google.firebase.appcheck.FirebaseAppCheck
-import com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory
 import org.techtown.starcraft2.databinding.TerranBinding
 
 class Terran:AppCompatActivity() {
@@ -14,10 +11,8 @@ class Terran:AppCompatActivity() {
         setContentView(binding.root)
         val unitName = intent.getStringExtra("Name")
         val unitInfo = intent.getStringExtra("info")
-        val unitImg = intent.getStringExtra("img")
         binding.name.text = unitName
         binding.info.text = unitInfo
-        binding.img.loadImage(unitImg, getProgressDrawable(this))
 
     }
 }

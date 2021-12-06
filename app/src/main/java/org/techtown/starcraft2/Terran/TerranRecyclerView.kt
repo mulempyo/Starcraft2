@@ -1,13 +1,17 @@
 package org.techtown.starcraft2.Terran
 
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.google.firebase.FirebaseApp
 import com.google.firebase.appcheck.FirebaseAppCheck
 import com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory
 import com.google.firebase.database.*
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import org.techtown.starcraft2.Starcraft2Unit
 import org.techtown.starcraft2.databinding.Terran2Binding
 
@@ -35,9 +39,9 @@ class TerranRecyclerView:AppCompatActivity() {
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
-                    for (animalSnapshot in snapshot.children){
-                        val animal = animalSnapshot.getValue(Starcraft2Unit::class.java)
-                        unitList.add(animal!!)
+                    for (starcraft2Snapshot in snapshot.children){
+                        val starcraft2Info = starcraft2Snapshot.getValue(Starcraft2Unit::class.java)
+                        unitList.add(starcraft2Info!!)
                     }
                     binding.recyclerTerran.adapter = adapter
                 }

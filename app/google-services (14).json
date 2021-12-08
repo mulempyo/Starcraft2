@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "350455767096",
-    "firebase_url": "https://starcraft2-terran-default-rtdb.firebaseio.com",
-    "project_id": "starcraft2-terran",
-    "storage_bucket": "starcraft2-terran.appspot.com"
+    "project_number": "141481425943",
+    "firebase_url": "https://neww-8b3e5-default-rtdb.firebaseio.com",
+    "project_id": "neww-8b3e5",
+    "storage_bucket": "neww-8b3e5.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:350455767096:android:3f4f5da374cd334f26c6cd",
+        "mobilesdk_app_id": "1:141481425943:android:2e39ba75a5b8410f41b052",
         "android_client_info": {
           "package_name": "org.techtown.starcraft2"
         }
       },
       "oauth_client": [
         {
-          "client_id": "350455767096-gc2q3ag2fp20d11fhct0hofic3g54mgo.apps.googleusercontent.com",
+          "client_id": "141481425943-tbtn49460lr434khqokrq0o5s9p6o7e7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "org.techtown.starcraft2",
@@ -23,20 +23,20 @@
           }
         },
         {
-          "client_id": "350455767096-nkqgmvfhfuvjtu8al9tc7a0fmtqgus9p.apps.googleusercontent.com",
+          "client_id": "141481425943-bebtpogpgv4afb61msgpgrgmlo3af5ve.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCydxPeaF6-LUmwz0aSsFsYC5SK3Uk1dy0"
+          "current_key": "AIzaSyDC5_Yr2nPZP89FgD9dLN0tFEpeAhWNxkA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "350455767096-nkqgmvfhfuvjtu8al9tc7a0fmtqgus9p.apps.googleusercontent.com",
+              "client_id": "141481425943-bebtpogpgv4afb61msgpgrgmlo3af5ve.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

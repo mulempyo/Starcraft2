@@ -18,12 +18,12 @@ fun getProgressDrawable(context:Context): CircularProgressDrawable {
 
 fun ImageView.loadImage(uri:String?,progressDrawable:CircularProgressDrawable){
 
-    val option = RequestOptions()?.placeholder(progressDrawable)
+    val option = RequestOptions().placeholder(progressDrawable)
         .error(R.mipmap.ic_launcher)
 
     Glide.with(context)
         .setDefaultRequestOptions(option)
-        ?.load(uri)
+        .load(uri)
         .into(this)
 
 }

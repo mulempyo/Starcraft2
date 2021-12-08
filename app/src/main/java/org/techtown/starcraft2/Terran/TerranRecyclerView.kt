@@ -28,11 +28,6 @@ class TerranRecyclerView:AppCompatActivity() {
         binding.recyclerTerran.layoutManager = LinearLayoutManager(this)
         binding.recyclerTerran.setHasFixedSize(true)
         getUnitData()
-        FirebaseApp.initializeApp(this)
-        val firebaseAppCheck = FirebaseAppCheck.getInstance()
-        firebaseAppCheck.installAppCheckProviderFactory(
-            DebugAppCheckProviderFactory.getInstance()
-        )
     }
     private fun getUnitData(){
         database = FirebaseDatabase.getInstance().getReference("Terran")

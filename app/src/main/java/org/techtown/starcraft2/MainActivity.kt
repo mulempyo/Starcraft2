@@ -11,18 +11,20 @@ import org.techtown.starcraft2.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
+
     val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
         FirebaseApp.initializeApp(this)
         val firebaseAppCheck = FirebaseAppCheck.getInstance()
         firebaseAppCheck.installAppCheckProviderFactory(
-                DebugAppCheckProviderFactory.getInstance()
+            DebugAppCheckProviderFactory.getInstance()
         )
-        FirebaseApp.initializeApp(this)
+        //FirebaseApp.initializeApp(this)
         firebaseAppCheck.installAppCheckProviderFactory(
-                SafetyNetAppCheckProviderFactory.getInstance()
+            SafetyNetAppCheckProviderFactory.getInstance()
         )
 
         binding.youtubeButton.setOnClickListener {
@@ -35,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
 }
 
 
